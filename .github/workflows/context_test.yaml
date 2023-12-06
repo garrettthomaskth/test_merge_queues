@@ -31,3 +31,9 @@ jobs:
           echo ${{ github.ref }}
           echo "github.event.pull_request.head.ref"
           echo ${{ github.event.pull_request.head.ref }}
+          if [[ github.ref != 'refs/heads/main' ]]
+          then
+            echo "if"
+          else
+            echo "else"
+          fi
