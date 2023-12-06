@@ -1,0 +1,33 @@
+name: Context Test
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+      - .github/workflows/context_test.yaml
+  pull_request:
+    paths:
+      - README.md
+      - .github/workflows/context_test.yaml
+
+jobs:
+  contextTest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          path: 'src'
+          fetch-depth: 0
+      - name: Context test
+        id: context-test
+        run: |
+          cd ${{ github.workspace }}/src/
+          echo "github"
+          echo github
+          echo "github.ref"
+          echo github.ref
+          echo "github.event.pull_request.head.ref"
+          echo github.event.pull_request.head.ref
