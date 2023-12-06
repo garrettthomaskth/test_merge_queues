@@ -26,8 +26,8 @@ jobs:
         run: |
           cd ${{ github.workspace }}/src/
           echo "github"
-          echo $({{ github }})
+          echo ${{ github }}
           echo "github.ref"
-          echo $({{ github.ref }})
+          echo ${{ github.ref }}
           echo "github.event.pull_request.head.ref"
-          echo $({{ github.event.pull_request.head.ref }})
+          echo ${{ github.event.pull_request.head.ref }}
